@@ -1,0 +1,21 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - model: musegan
+  - train_params: default
+  - data: lpd
+
+hydra:
+  run:
+    dir: ./
+  output_subdir: null
+  job_logging:
+    formatters:
+      simple:
+        format: '[%(asctime)s][%(levelname)s][%(module)s | %(lineno)s] %(message)s'
+    disable_existing_loggers: false
+
+out_dir: out/trial   # Directory to output training results.
+seed: 12345  # Seed number for random numbers.
+sf2_path: ./font.sf2  # $ sudo apt install fluidsynth && cp /usr/share/sounds/sf2/FluidR3_GM.sf2 ./font.sf2

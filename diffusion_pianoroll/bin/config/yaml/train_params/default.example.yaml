@@ -1,0 +1,20 @@
+# Interval setting
+# discriminator_train_start_steps: 0    # Number of steps to start to train discriminator.
+train_max_steps: 50000               # Number of pre-training steps.
+save_interval_steps: 2000           # Interval steps to save checkpoint.
+eval_interval_steps: 1000             # Interval steps to evaluate the network.
+log_interval_steps: 2000              # Interval steps to record the training log.
+resume:                               # Epoch to resume training.
+
+# Optimizer and scheduler setting
+vae_optimizer:
+  _target_: torch.optim.Adam
+  lr: 0.001
+  betas: [0.5, 0.9]
+  weight_decay: 0.0
+
+# Sampling
+sample_grid: [8, 8]
+save_array_samples: true
+save_image_samples: true
+save_pianoroll_samples: true

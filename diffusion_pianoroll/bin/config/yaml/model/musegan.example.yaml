@@ -1,0 +1,7 @@
+_target_: diffusion_pianoroll.models.MuseGAN_AE
+n_tracks: 5
+n_measures: 4
+measure_resolution: 48
+n_beats: 4
+n_pitches: 84
+d_latent: 128
