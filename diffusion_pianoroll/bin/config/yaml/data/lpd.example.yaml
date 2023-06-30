@@ -1,7 +1,7 @@
 # Dataset settings
-train_pianoroll: egs/lpd/data/lpd_train.txt # List file of training audio files.
-valid_pianoroll: egs/lpd/data/lpd_valid.txt  # List file of validation audio files.
-eval_pianoroll: egs/lpd/data/lpd_eval.txt    # List file of evaluation feature files for decoding.
+train_pianoroll: data/lpd/data/lpd_train.txt # List file of training audio files.
+valid_pianoroll: data/lpd/data/lpd_valid.txt  # List file of validation audio files.
+eval_pianoroll: data/lpd/data/lpd_eval.txt    # List file of evaluation feature files for decoding.
 allow_cache: false  # Whether to allow cache in dataset. If true, it requires cpu memory
 
 n_tracks: 5
