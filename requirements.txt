@@ -14,3 +14,4 @@ tensorboardX==2.6.1
 torch==2.0.1
 tqdm==4.65.0
 urllib3==1.26.16
+h5py==3.8.0
