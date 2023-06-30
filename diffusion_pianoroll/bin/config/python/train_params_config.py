@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 from diffusion_pianoroll.bin.config.python.optimizer_config \
     import OptimizerConfig
@@ -16,7 +16,7 @@ class TrainParamsConfig():
     optimizer: OptimizerConfig = OptimizerConfig()
 
     # Sampling
-    sample_grid: list = [8, 8]
+    sample_grid: list[int] = field(default_factory=lambda: [8, 8])
     save_array_samples: bool = True
     save_image_samples: bool = True
     save_pianoroll_samples: bool = True

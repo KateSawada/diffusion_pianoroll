@@ -1,9 +1,9 @@
 from dataclasses import dataclass
 
 import torch
-import torch.optim.optimizer
+from torch.optim.optimizer import Optimizer
 
 
 @dataclass
 class OptimizerConfig:
-    _target_: torch.optim.optimizer.Optimizer
+    _target_: Optimizer = torch.optim.Adam
