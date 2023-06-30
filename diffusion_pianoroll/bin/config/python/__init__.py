@@ -1,5 +1,5 @@
-from data_config import *  # NOQA
-from model_config import *  # NOQA
-from optimizer_config import *  # NOQA
-from train_config import *  # NOQA
-from train_params_config import *  # NOQA
+from diffusion_pianoroll.bin.config.python.data_config import *  # NOQA
+from diffusion_pianoroll.bin.config.python.model_config import *  # NOQA
+from diffusion_pianoroll.bin.config.python.optimizer_config import *  # NOQA
+from diffusion_pianoroll.bin.config.python.train_config import *  # NOQA
+from diffusion_pianoroll.bin.config.python.train_params_config import *  # NOQA

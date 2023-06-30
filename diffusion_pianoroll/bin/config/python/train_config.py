@@ -1,8 +1,9 @@
 from dataclasses import dataclass
 
-from model_config import ModelConfig
-from data_config import DataConfig
-from train_params_config import TrainParamsConfig
+from diffusion_pianoroll.bin.config.python.model_config import ModelConfig
+from diffusion_pianoroll.bin.config.python.data_config import DataConfig
+from diffusion_pianoroll.bin.config.python.train_params_config \
+    import TrainParamsConfig
 
 
 @dataclass

@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 
-from optimizer_config import OptimizerConfig
+from diffusion_pianoroll.bin.config.python.optimizer_config \
+    import OptimizerConfig
 
 
 @dataclass

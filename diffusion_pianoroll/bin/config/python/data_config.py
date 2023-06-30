@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 
 @dataclass
@@ -20,33 +20,33 @@ class DataConfig:
     num_workers: int = 1
     pin_memory: bool = True
 
-    is_drums: list = [
+    is_drums: list[bool] = field(default_factory=lambda: [
         True,
         False,
         False,
         False,
         False,
-    ]
-    programs: list = [
+    ])
+    programs: list[int] = field(default_factory=lambda: [
         0,
         0,
         25,
         33,
         48,
-    ]
+    ])
     tempo: int = 100
-    track_names: list = [
+    track_names: list[str] = field(default_factory=lambda: [
         "Drums",
         "Piano",
         "Guitar",
         "Bass",
         "Strings",
-    ]
+    ])
 
-    colormap: list = [
+    colormap: list[list[int]] = field(default_factory=lambda: [
         [1., 0., 0.],
         [1., .5, 0.],
         [0., 1., 0.],
         [0., 0., 1.],
         [0., .5, 1.],
-    ]
+    ])
