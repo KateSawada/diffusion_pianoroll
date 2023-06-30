@@ -3,9 +3,9 @@ from dataclasses import dataclass, field
 
 @dataclass
 class DataConfig:
-    train_pianoroll: str = "egs/lpd/data/lpd_train.txt"
-    valid_pianoroll: str = "egs/lpd/data/lpd_valid.txt"
-    eval_pianoroll: str = "egs/lpd/data/lpd_eval.txt"
+    train_pianoroll: str = "data/lpd/data/lpd_train.txt"
+    valid_pianoroll: str = "data/lpd/data/lpd_valid.txt"
+    eval_pianoroll: str = "data/lpd/data/lpd_eval.txt"
     allow_cache: bool = False
 
     n_tracks: int = 5
