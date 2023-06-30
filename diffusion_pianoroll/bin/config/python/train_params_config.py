@@ -2,6 +2,7 @@ from dataclasses import dataclass
 
 from optimizer_config import OptimizerConfig
 
+
 @dataclass
 class TrainParamsConfig():
     train_max_steps: int = 50000
