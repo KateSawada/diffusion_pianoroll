@@ -20,3 +20,7 @@ class TrainParamsConfig():
     save_array_samples: bool = True
     save_image_samples: bool = True
     save_pianoroll_samples: bool = True
+
+    # noise wight schedule
+    num_train_timestep: int = 200
+    beta_schedule: str = "squaredcos_cap_v2"

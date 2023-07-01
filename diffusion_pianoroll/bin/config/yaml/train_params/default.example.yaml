@@ -18,3 +18,7 @@ sample_grid: [8, 8]
 save_array_samples: true
 save_image_samples: true
 save_pianoroll_samples: true
+
+# noise wight schedule
+num_train_timestep: 200
+beta_schedule: "squaredcos_cap_v2"
