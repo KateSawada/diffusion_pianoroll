@@ -561,7 +561,7 @@ class TP_PT_Decoder(torch.nn.Module):
         return (x,)
 
 
-class MuseGANAutoEncoder:
+class MuseGANAutoEncoder(torch.nn.Module):
     def __init__(
         self,
         n_tracks,
@@ -610,11 +610,12 @@ class MuseGANAutoEncoder:
     def decode(self, z):
         return self.decoder(z)
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
+    def forward(self, x: torch.Tensor, timestep: int) -> torch.Tensor:
         """forward function
 
         Args:
             x (torch.Tensor): pianoroll batch.
+            timestep (int): noise timestep
 
         Returns:
             torch.Tensor: pianoroll batch
