@@ -6,6 +6,7 @@ import numpy as np
 from hydra.utils import to_absolute_path
 from diffusion_pianoroll.utils import read_txt
 from torch.utils.data import Dataset
+import torch
 
 # A logger for this file
 logger = getLogger(__name__)
@@ -93,3 +94,25 @@ class PianorollDataset(Dataset):
 
         """
         return len(self.pianoroll_files)
+
+    @staticmethod
+    def train_collator(batch: list[PianorollDatasetItem]) -> torch.FloatTensor:
+        """collate function for training
+
+        Args:
+            batch (list[PianorollDatasetItem]): batch
+
+        Returns:
+            torch.FloatTensor: pianoroll tensor
+        """
+        pianoroll_batch = []
+        for idx in range(len(batch)):
+            pianoroll = batch[idx].pianoroll
+            pianoroll_batch += [pianoroll.astype(np.float32)]
+
+        # convert each batch to tensor,
+        # assume that each item in batch has the same length
+        pianoroll_batch = torch.FloatTensor(np.array(pianoroll_batch))
+
+        pianoroll_batch = torch.permute(pianoroll_batch, (0, 4, 1, 2, 3))
+        return pianoroll_batch
