@@ -113,6 +113,7 @@ class TP_PT_Encoder(nn.Module):
     """
     def __init__(
         self,
+        d_latent,
         n_tracks,
         n_measures,
         measure_resolution,
@@ -122,6 +123,7 @@ class TP_PT_Encoder(nn.Module):
         """_summary_
 
         Args:
+            d_latenet (int): The number of encoded dimension
             n_tracks (int): Number of tracks
             n_measures (int): Number of Measures
             measure_resolution (int): time resolution per measure
@@ -130,6 +132,7 @@ class TP_PT_Encoder(nn.Module):
         """
         super().__init__()
 
+        self.d_latent = d_latent
         self.n_tracks = n_tracks
         self.n_measures = n_measures
         self.measure_resolution = measure_resolution
@@ -289,6 +292,8 @@ class TP_PT_Encoder(nn.Module):
                 )
             ]
 
+        self.dense = torch.nn.Linear(1536, d_latent)
+
     def forward(self, x):
         x = x.view(
             -1,
@@ -383,6 +388,7 @@ class TP_PT_Encoder(nn.Module):
             x = self.all_merge_conv_network[i](x)
 
         x = x.view(x.shape[0], -1)
+        x = self.dense(x)
         return x
 
 
@@ -558,6 +564,7 @@ class TP_PT_Decoder(torch.nn.Module):
             self.measure_resolution,
             self.n_pitches,
         )
+
         return (x,)
 
 
@@ -589,6 +596,7 @@ class MuseGANAutoEncoder(torch.nn.Module):
         self.d_latent = d_latent
 
         self.encoder = TP_PT_Encoder(
+            d_latent,
             n_tracks,
             n_measures,
             measure_resolution,
@@ -620,5 +628,5 @@ class MuseGANAutoEncoder(torch.nn.Module):
         Returns:
             torch.Tensor: pianoroll batch
         """
-        z = self.encode(x)[0]
+        z = self.encode(x)
         return self.decode(z)
