@@ -1,0 +1,25 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - model: musegan
+  - data: lpd
+
+hydra:
+  run:
+    dir: ./
+  output_subdir: null
+  job_logging:
+    formatters:
+      simple:
+        format: '[%(asctime)s][%(levelname)s][%(module)s | %(lineno)s] %(message)s'
+    disable_existing_loggers: false
+
+n_samples: 4
+noise_timesteps: 200
+beta_schedule: "squaredcos_cap_v2"
+out_dir: out/trial/generate   # Directory to output training results.
+checkpoint_path: out/trial/checkpoints/checkpoint-50000steps.pkl
+steps: 50000
+seed: 12345  # Seed number for random numbers.
+sf2_path: ./font.sf2  # $ sudo apt install fluidsynth && cp /usr/share/sounds/sf2/FluidR3_GM.sf2 ./font.sf2
