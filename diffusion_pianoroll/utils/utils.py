@@ -18,6 +18,16 @@ import numpy as np
 logger = getLogger(__name__)
 
 
+def makedirs_if_not_exists(path: str):
+    """make directory if not exists.
+
+    Args:
+        path (str): dir path.
+    """
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+
 def read_hdf5(hdf5_name: str, hdf5_path: str) -> any:
     """Read hdf5 dataset.
 
