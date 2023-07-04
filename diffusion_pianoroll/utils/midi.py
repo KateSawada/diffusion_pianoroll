@@ -55,8 +55,8 @@ def multitrack_to_pretty_midi(
     else:
         tempo = DEFAULT_TEMPO
 
-    if default_tempo is not None:
-        calc_velocities = lambda _: default_tempo  # NOQA
+    if default_velocity is not None:
+        calc_velocities = lambda _: default_velocity  # NOQA
     else:
         calc_velocities = lambda x: np.mean(x)  # NOQA
 
